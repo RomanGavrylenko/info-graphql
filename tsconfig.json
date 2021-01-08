@@ -9,8 +9,6 @@
       "inlineSourceMap": true,
       "esModuleInterop": true,
       "strictNullChecks": true,
-      "noUnusedLocals": true,
-      "noUnusedParameters": true,
       "noImplicitReturns": true,
       "noFallthroughCasesInSwitch": true,
       "traceResolution": false,
@@ -24,7 +22,8 @@
       "typeRoots": ["node_modules/@types", "server/generated"],
       "baseUrl": ".",
       "paths": {
-        "@/*": ["./*"]
+        "@/*": ["./*"],
+        "@/models/*": ["models/*"]
       }
     },
     "exclude": ["node_modules/**"],

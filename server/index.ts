@@ -1,38 +1,13 @@
-import { gql, ApolloServer, makeExecutableSchema } from "apollo-server";
+import { ApolloServer } from "apollo-server";
 import  mongoose from 'mongoose';
-import User from '../models/user';
+import { resolvers } from '../graphql/resolver';
+import { typeDefs } from '../graphql/typeDef';
 import { MONGODB } from '../config';
 const PORT = process.env.port || 5000;
 
-const typeDefs = gql`
-    type User {
-        id: Int
-        username: String
-        password: String
-        email: String
-        createdAt: String
-    }
-
-    type Query {
-        getUser: User
-    }
-`;
-
-const resolvers = {
-    Query: {
-        async getUser() {
-            return await User.findOne();
-        }
-    }
-};
-
-const schema = makeExecutableSchema({
-  resolvers,
-  typeDefs,
-})
-
 const server = new ApolloServer({
-  schema,
+  typeDefs, 
+  resolvers,
   context: ({ req }) => ({ req }),
 });
 
@@ -41,8 +16,8 @@ mongoose
   .then(() => {
     return server.listen({ port: PORT });
   })
-  .then((res) => {
-    console.log(`Server running at ${res}`);
+  .then(() => {
+    console.log(`Server running`);
   })
   .catch(err => {
     console.error(err)
