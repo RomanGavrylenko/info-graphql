@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "generate:types": "graphql-codegen --config codegen.yml",
-    "start": "nodemon server/index.ts"
+    "start": "nodemon server/index.ts",
+    "serve": "ts-node server/index.ts"
   },
   "keywords": [],
   "author": "",

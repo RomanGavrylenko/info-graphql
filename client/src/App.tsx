@@ -4,23 +4,21 @@ import logo from './logo.svg';
 import './App.css';
 
 const query = gql`
-    query {
-      getUser {
-        username
-      }
+  query {
+    getUser {
+      username
     }
+  }
 `;
 
 function App() {
-  
-  const { data, loading, networkStatus, refetch} = useQuery(query, {
-    pollInterval: 20000,
+  const { data, loading, networkStatus, refetch } = useQuery(query, {
     notifyOnNetworkStatusChange: true,
   });
-  console.log("🚀 ~ file: App.tsx ~ line 17 ~ App ~ networkStatus", networkStatus)
-  
-  console.log("🚀 ~ file: App.tsx ~ line 17 ~ App ~ data", loading, data)
-  
+  console.log('🚀 ~ file: App.tsx ~ line 17 ~ App ~ networkStatus', networkStatus);
+
+  console.log('🚀 ~ file: App.tsx ~ line 17 ~ App ~ data', loading, data);
+
   return (
     <div className="App">
       <button onClick={() => refetch()}>refetch button</button>
@@ -33,8 +31,7 @@ function App() {
           className="App-link"
           href="https://reactjs.org"
           target="_blank"
-          rel="noopener noreferrer"
-        >
+          rel="noopener noreferrer">
           Learn React
         </a>
       </header>

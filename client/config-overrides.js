@@ -8,6 +8,6 @@ module.exports = function override(config) {
       '@': path.resolve(__dirname, 'src/'),
     },
   };
-  
+
   return config;
 };
